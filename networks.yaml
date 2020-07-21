@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  product-service:
+    image: nginx
+    ports:
+      - "8080:8080"
+    networks:
+      hostnet: {}
+           
+networks:
+  hostnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16     # services can reach dokcer host at 172.28.0.1
